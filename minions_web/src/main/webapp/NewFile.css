@@ -1,58 +1,105 @@
-@charset "UTF-8";
-/* pc 버전의 스타일
-	
-	1. 스타일 초기화 : 직접[v] RESET 사용할것인지? 
-	
-	2. 레이아웃 관련 공통 스타일, 각 구역별 세부 스타일 (코딩 컨벤션)
-	
-	    - 헤더 ~ 푸터
-	
-	3. 레이아웃 기법 : 여러가지~ 어떤것을 어떻게 사용할지!
-	
-	    - 대부분 : flexbox
-	    - 부분 : float, position
-	    - display 변경해가면서 구현
- */
-*,
-*::before,
-*::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box
-}
-
-body {
-	font-family: 'Maven Pro', Noto Sans KR', sans-serif;
-}
-
-
-/* =================== 01. 레이아웃 공통 클래스 정의 =================== */
-.d-flex {
-	display: flex
-}
-.justify-center {
-	justify-content: center
-}
-.justify-between {
-	justify-content: space-between
-}
-.justify-around {
-	justify-content: space-around
-}
-.align-center {
-	align-items: center
-}
-.align-self-center {
-	align-self: center;
-}
-.container {
-	max-width: 1000px; /* 요즘은 네이버 기준, 1200쯤? 만드는게 일반적! */
-}
-.mx-auto {
-	margin: 0 auto;
-}
-
-
-/* =================== 02. 레이아웃 구역별 세부 클래스 정의 =================== */
-
-/* =================== 02-1. header 클래스 정의 =================== */ 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미니언즈</title>
+<!--  link:favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+<!--  google font CDN(Content Delivery Network) -->
+<link rel="preconnect" href="
+https://fonts.googleapis.com/
+">
+<link rel="preconnect" href="
+https://fonts.gstatic.com/
+" crossorigin>
+<link href="
+https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Noto+Sans+KR:wght@400;900&display=swap
+" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<h1 class="d-none">미니언즈 스핀오프 프로모션 웹사이트</h1>
+	<!-- header+section.main+footer|c -->
+	<header>
+		<div class="container mx-auto d-flex justify-between align-center">
+			<div class="links d-flex gap-1 justify-center">
+				<a href="#">로그인</a> <a href="#">회원가입</a> <a href="#">사이트맵</a>
+			</div>
+			<div class="header-logo">
+				<a href="#"><img src="images/logo.png" alt="미니언즈 | 일루미네이션" /></a>
+			</div>
+			<div class="social d-flex gap-1">
+				<img src="images/sns_icon1.png" alt="카카오" /> <img
+					src="images/sns_icon2.png" alt="페이스북" /> <img
+					src="images/sns_icon3.png" alt="트위터" />
+			</div>
+		</div><!-- /.container -->
+		<hr>
+		<nav class="main_nav">
+			<div class="topNav container mx-auto d-flex justify-center align-center gap-3">
+				<a href="#">미니언즈소개</a> <a href="#">캐릭터정보</a> <a href="#">커뮤니티</a> <a
+					href="#">제휴업체</a>
+			</div>
+			<!-- /.container mx-auto d-flex justify-center -->
+		</nav>
+	</header>
+	<section id="trailer">
+		<!-- video, audio 태그 : 리소스가 있다면! -->
+		<!-- 영상스트리밍 서버를 통해서(유투브)에서 제공해주는 iframe 태그 -->
+		<!-- iframe : 오래전 비표준 태그 (영상,오디오를 연결하는)에서 현재는 표준으로 확정 -->
+		<div class="youtube container mx-auto">
+			<div class="devils pos-absolute">
+					<img src="images/visual_img.png" alt="메인 캐릭터들" />
+			</div>
+			<div class="youtubeWrap">
+				<iframe width="1560" height="1315"
+					src="
+https://www.youtube.com/embed/sKAOQ9kwl1A?si=VEZk6s4KcVrjc3cD&amp;start=1
+"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div><!-- /.youtubeWrap -->
+		</div><!-- /.youtube -->	
+	</section>
+	<main>
+		<article>
+			<h2>character</h2>
+			<div class="characters">
+				<div class="character">
+					<img src="images/char1.jpg" alt="dave">
+				</div>
+				<div class="character">
+					<img src="images/char2.jpg" alt="lance">
+				</div>
+				<div class="character">
+					<img src="images/char3.jpg" alt="dave">
+				</div>
+			</div>
+		</article>
+		<article>진짜 독립적으로 쓸수있는 컨텐츠, 내용</article>
+	</main>
+	<aside>
+		<a href="#"> <img src="images/banner.jpg"
+			alt="미니언즈4 예매인증하고, 맥도널드 피규어셋트 구입하기" />
+		</a>
+	</aside>
+	<footer>
+		<div class="extra-links">
+			<a href="#">제휴업체</a> <a href="#">이용약관</a> <a href="#">개인정보취급방침</a>
+		</div>
+		<address>
+			<p>
+				copyright &copy; 2024. <span class="brand">minions</span> all rights
+				reserved.
+			</p>
+		</address>
+		<div class="footer-logo">
+			<a href="#"> <img src="images/footer_logo.png"
+				alt="미니언즈 | 일루미네이션">
+			</a>
+		</div>
+	</footer>
+</body>
+</html> 
